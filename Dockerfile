@@ -7,6 +7,7 @@ USER root
 
 # Download and install maven
 RUN \
+  apt-get update -y && apt-get upgrade -y && apt-get install -y curl && \
   mkdir -p /usr/share/maven && \
   cd /tmp && \
   curl -O https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz && \
