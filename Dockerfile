@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk
+FROM jenkins/jnlp-slave
 
 ENV MAVEN_VERSION=3.5.2
 ENV MAVEN_SHA1=190dcebb8a080f983af4420cac4f3ece7a47dd64
