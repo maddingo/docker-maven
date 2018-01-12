@@ -3,8 +3,6 @@ FROM jenkins/jnlp-slave
 ENV MAVEN_VERSION=3.5.2
 ENV MAVEN_SHA1=190dcebb8a080f983af4420cac4f3ece7a47dd64
 
-USER root
-
 # Download and install maven
 RUN \
     mkdir -p /usr/share/maven && \
@@ -18,7 +16,3 @@ RUN \
 RUN \
   ln -s /usr/share/maven/bin/mvn /usr/bin/mvn && \
   echo export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 >/etc/mavenrc
-
-# for the time being we use the root user, later the entry point script should take care of this
-
-CMD ["mvn", "-version"]
