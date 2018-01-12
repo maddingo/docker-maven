@@ -4,6 +4,7 @@ ENV MAVEN_VERSION=3.5.2
 ENV MAVEN_SHA1=190dcebb8a080f983af4420cac4f3ece7a47dd64
 
 # Download and install maven
+USER root
 RUN \
     mkdir -p /usr/share/maven && \
     cd /tmp && \
@@ -16,3 +17,5 @@ RUN \
 RUN \
   ln -s /usr/share/maven/bin/mvn /usr/bin/mvn && \
   echo export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 >/etc/mavenrc
+
+USER jenkins
